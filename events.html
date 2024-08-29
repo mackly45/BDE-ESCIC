@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Événements - BDE ESCIC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.0.0/fullcalendar.min.css" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            background-color: rgb(10, 30, 79);
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar,
+        .footer {
+            background-color: rgb(10, 30, 79);
+            transition: background-color 0.3s;
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(10, 30, 79, 0.9);
+        }
+
+        .navbar-brand,
+        .nav-link,
+        .footer p {
+            color: white;
+        }
+
+        .hero {
+            background: linear-gradient(120deg, rgba(12, 162, 19, 255) 0%, rgb(10, 30, 79) 100%);
+            color: white;
+            padding: 100px 0;
+        }
+
+        .section-title {
+            color: rgba(12, 162, 19, 255);
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background-color: rgba(12, 162, 19, 255);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border: none;
+            border-radius: 15px;
+            color: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer {
+            padding: 20px 0;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .animate-on-scroll.scrolled {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .countdown-timer {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="logo-escic.png" alt="ESCIC Logo" width="30" height="30" class="d-inline-block align-top">
+                    BDE ESCIC
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">À propos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="events.html">Événements</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="clubs.html">Clubs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="partners.html">Partenaires</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="vote.html">Vote en ligne</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero is-primary text-center">
+        <div class="hero-body">
+            <p class="title animate__animated animate__fadeInDown">
+                Événements du BDE ESCIC
+            </p>
+            <p class="subtitle animate__animated animate__fadeInUp">
+                Découvrez les activités à venir organisées par le BDE.
+            </p>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="container my-5">
+        <h2 class="section-title">Prochains Événements</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card p-3 animate-on-scroll">
+                    <h4>Sortie d'intégration</h4>
+                    <p>Date: 20 Septembre 2024</p>
+                    <p>Une journée pour accueillir et intégrer les nouveaux étudiants à l'ESCIC.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3 animate-on-scroll">
+                    <h4>Journée sportive</h4>
+                    <p>Date: 15 Octobre 2024</p>
+                    <p>Participez à une journée dédiée au sport et au bien-être.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3 animate-on-scroll">
+                    <h4>Journée de la femme</h4>
+                    <p>Date: 8 Mars 2025</p>
+                    <p>Une journée pour célébrer et honorer les femmes de l'ESCIC.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4 mt-4">
+            <div class="col-md-4">
+                <div class="card p-3 animate-on-scroll">
+                    <h4>Journée écologique et découvertes</h4>
+                    <p>Date: 22 Avril 2025</p>
+                    <p>Explorez les initiatives écologiques et les découvertes scientifiques.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3 animate-on-scroll">
+                    <h4>Festival de théâtre scolaire et universitaire</h4>
+                    <p>Date: 5 Mai 2025</p>
+                    <p>Assistez à des représentations théâtrales par les étudiants.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3 animate-on-scroll">
+                    <h4>Journée entrepreneuriale et du développement numérique</h4>
+                    <p>Date: 15 Juin 2025</p>
+                    <p>Un événement axé sur l'entrepreneuriat et l'innovation numérique.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4 mt-4">
+            <div class="col-md-4 offset-md-4">
+                <div class="card p-3 animate-on-scroll">
+                    <h4>ESCIC AWARDS</h4>
+                    <p>Date: 30 Juillet 2025</p>
+                    <p>L'événement de clôture de l'année, récompensant les talents et les réussites des étudiants.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section id="countdown" class="container my-5">
+        <h2 class="section-title">Compte à Rebours</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <h4>Sortie d'intégration</h4>
+                    <p>Date: 20 Septembre 2024</p>
+                    <div id="countdown-integration" class="countdown-timer"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <h4>Journée sportive</h4>
+                    <p>Date: 15 Octobre 2024</p>
+                    <div id="countdown-sportive" class="countdown-timer"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <h4>Journée de la femme</h4>
+                    <p>Date: 8 Mars 2025</p>
+                    <div id="countdown-women" class="countdown-timer"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section id="calendar" class="container my-5">
+        <h2 class="section-title">Calendrier des Événements</h2>
+        <div id="calendar-container"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2024 BDE ESCIC. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.0.0/index.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.0.0/index.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@6.0.0/index.global.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var calendarEl = document.getElementById('calendar-container');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                events: [
+                    {
+                        title: 'Sortie d\'intégration',
+                        start: '2024-09-20'
+                    },
+                    {
+                        title: 'Journée sportive',
+                        start: '2024-10-15'
+                    },
+                    {
+                        title: 'Journée de la femme',
+                        start: '2025-03-08'
+                    },
+                    {
+                        title: 'Journée écologique et découvertes',
+                        start: '2025-04-22'
+                    },
+                    {
+                        title: 'Festival de théâtre scolaire et universitaire',
+                        start: '2025-05-05'
+                    },
+                    {
+                        title: 'Journée entrepreneuriale et du développement numérique',
+                        start: '2025-06-15'
+                    },
+                    {
+                        title: 'ESCIC AWARDS',
+                        start: '2025-07-30'
+                    }
+                ]
+            });
+            calendar.render();
+        });
+
+        // Countdown Timer Function
+        function countdown(date, element) {
+            const eventDate = new Date(date).getTime();
+            const interval = setInterval(function () {
+                const now = new Date().getTime();
+                const distance = eventDate - now;
+                if (distance < 0) {
+                    clearInterval(interval);
+                    element.textContent = "Événement terminé";
+                    return;
+                }
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                element.textContent = `${days}j ${hours}h ${minutes}m ${seconds}s`;
+            }, 1000);
+        }
+
+        // Initialize Countdown Timers
+        countdown('2024-09-20', document.getElementById('countdown-integration'));
+        countdown('2024-10-15', document.getElementById('countdown-sportive'));
+        countdown('2025-03-08', document.getElementById('countdown-women'));
+
+        // Animate on Scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            const windowHeight = window.innerHeight;
+            elements.forEach((element) => {
+                const positionFromTop = element.getBoundingClientRect().top;
+                if (positionFromTop - windowHeight <= -50) {
+                    element.classList.add('scrolled');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+
+</html>

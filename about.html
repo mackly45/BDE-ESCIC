@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos - BDE ESCIC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            background-color: rgb(10,30,79);
+        }
+        .navbar, .footer {
+            background-color: rgb(10,30,79);
+        }
+        .navbar-brand, .nav-link, .footer p {
+            color: white;
+        }
+        .navbar-nav .nav-link {
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #12a21f;
+            transform: scale(1.1);
+        }
+        .hero {
+            background: linear-gradient(120deg, rgba(12,162,19,255) 0%, rgb(10,30,79) 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero .title, .hero .subtitle {
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+        .hero .subtitle {
+            font-size: 1.5rem;
+        }
+        .section-title {
+            color: rgba(12,162,19,255);
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+            font-size: 2rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background-color: rgba(12,162,19,255);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .card {
+            background-color: rgb(10,30,79);
+            backdrop-filter: blur(5px);
+            border: none;
+            border-radius: 15px;
+            color: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 15px;
+        }
+        .card p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .footer {
+            padding: 20px 0;
+            background-color: rgb(5,20,50);
+        }
+        .footer p {
+            margin: 0;
+        }
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="logo-escic.png" alt="ESCIC Logo" width="30" height="30" class="d-inline-block align-top">
+                    BDE ESCIC
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html"><i class="fas fa-info-circle"></i> À propos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="events.html"><i class="fas fa-calendar-alt"></i> Événements</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="clubs.html"><i class="fas fa-users"></i> Clubs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="partners.html"><i class="fas fa-handshake"></i> Partenaires</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="vote.html"><i class="fas fa-vote-yea"></i> Vote en ligne</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-body">
+            <h1 class="title animate__animated animate__fadeInDown">
+                À propos du BDE ESCIC
+            </h1>
+            <p class="subtitle animate__animated animate__fadeInUp">
+                Notre mission, nos valeurs et notre histoire.
+            </p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container my-5">
+        <h2 class="section-title">Qui sommes-nous ?</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card p-4">
+                    <h3>Notre Mission</h3>
+                    <p>Le BDE ESCIC a pour mission de créer une communauté étudiante dynamique, engagée et solidaire. Nous organisons divers événements et activités pour promouvoir l'intégration, le développement personnel, et la réussite académique de tous les étudiants.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-4">
+                    <h3>Nos Valeurs</h3>
+                    <p>Nous valorisons l'inclusion, l'innovation, et l'excellence. Notre BDE s'efforce de maintenir un environnement respectueux et stimulant, où chaque étudiant peut s'épanouir et contribuer de manière significative à la vie de l'université.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-4">
+                    <h3>Notre Histoire</h3>
+                    <p>Depuis sa création, le BDE ESCIC a évolué pour devenir un acteur clé de la vie étudiante à l'ESCIC. Grâce à l'engagement de nos membres et à la collaboration avec divers partenaires, nous continuons à offrir des expériences mémorables à tous nos étudiants.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2024 BDE ESCIC. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
