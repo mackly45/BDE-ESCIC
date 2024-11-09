@@ -17,29 +17,29 @@
             margin: 0;
             padding: 0;
         }
-
+        
         .navbar,
         .footer {
             background-color: rgb(10, 30, 79);
             transition: background-color 0.3s;
         }
-
+        
         .navbar.scrolled {
             background-color: rgba(10, 30, 79, 0.9);
         }
-
+        
         .navbar-brand,
         .nav-link,
         .footer p {
             color: white;
         }
-
+        
         .hero {
             background: linear-gradient(120deg, rgba(12, 162, 19, 255) 0%, rgb(10, 30, 79) 100%);
             color: white;
             padding: 100px 0;
         }
-
+        
         .section-title {
             color: rgba(12, 162, 19, 255);
             font-weight: bold;
@@ -48,7 +48,7 @@
             position: relative;
             padding-bottom: 10px;
         }
-
+        
         .section-title::after {
             content: '';
             position: absolute;
@@ -59,7 +59,7 @@
             left: 50%;
             transform: translateX(-50%);
         }
-
+        
         .card {
             background-color: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(5px);
@@ -68,27 +68,27 @@
             color: #fff;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
+        
         .card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
-
+        
         .footer {
             padding: 20px 0;
         }
-
+        
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.5s ease-out, transform 0.5s ease-out;
         }
-
+        
         .animate-on-scroll.scrolled {
             opacity: 1;
             transform: translateY(0);
         }
-
+        
         .countdown-timer {
             font-size: 1.5rem;
             color: rgba(255, 255, 255, 0.8);
@@ -104,11 +104,9 @@
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html">
-                    <img src="logo-escic.png" alt="ESCIC Logo" width="30" height="30" class="d-inline-block align-top">
-                    BDE ESCIC
+                    <img src="logo-escic.png" alt="ESCIC Logo" width="30" height="30" class="d-inline-block align-top"> BDE ESCIC
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -261,40 +259,32 @@
     <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@6.0.0/index.global.min.js"></script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             var calendarEl = document.getElementById('calendar-container');
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
-                events: [
-                    {
-                        title: 'Sortie d\'intégration',
-                        start: '2024-09-20'
-                    },
-                    {
-                        title: 'Journée sportive',
-                        start: '2024-10-15'
-                    },
-                    {
-                        title: 'Journée de la femme',
-                        start: '2025-03-08'
-                    },
-                    {
-                        title: 'Journée écologique et découvertes',
-                        start: '2025-04-22'
-                    },
-                    {
-                        title: 'Festival de théâtre scolaire et universitaire',
-                        start: '2025-05-05'
-                    },
-                    {
-                        title: 'Journée entrepreneuriale et du développement numérique',
-                        start: '2025-06-15'
-                    },
-                    {
-                        title: 'ESCIC AWARDS',
-                        start: '2025-07-30'
-                    }
-                ]
+                events: [{
+                    title: 'Sortie d\'intégration',
+                    start: '2024-09-20'
+                }, {
+                    title: 'Journée sportive',
+                    start: '2024-10-15'
+                }, {
+                    title: 'Journée de la femme',
+                    start: '2025-03-08'
+                }, {
+                    title: 'Journée écologique et découvertes',
+                    start: '2025-04-22'
+                }, {
+                    title: 'Festival de théâtre scolaire et universitaire',
+                    start: '2025-05-05'
+                }, {
+                    title: 'Journée entrepreneuriale et du développement numérique',
+                    start: '2025-06-15'
+                }, {
+                    title: 'ESCIC AWARDS',
+                    start: '2025-07-30'
+                }]
             });
             calendar.render();
         });
@@ -302,7 +292,7 @@
         // Countdown Timer Function
         function countdown(date, element) {
             const eventDate = new Date(date).getTime();
-            const interval = setInterval(function () {
+            const interval = setInterval(function() {
                 const now = new Date().getTime();
                 const distance = eventDate - now;
                 if (distance < 0) {

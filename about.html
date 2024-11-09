@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,106 +9,281 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* Définition des variables de couleurs */
+        
+         :root {
+            --primary-color: rgb(10, 30, 79);
+            --secondary-color: rgba(12, 162, 19, 255);
+            --text-color: #ffffff;
+            --transition-speed: 0.4s;
+        }
+        /* Style du corps de la page */
+        
         body {
             font-family: 'Poppins', sans-serif;
-            color: #fff;
-            background-color: rgb(10,30,79);
+            color: var(--text-color);
+            background-color: var(--primary-color);
+            overflow-x: hidden;
         }
-        .navbar, .footer {
-            background-color: rgb(10,30,79);
+        /* Style de la barre de navigation */
+        
+        .navbar {
+            background-color: rgba(10, 30, 79, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            transition: all var(--transition-speed) ease;
+            padding: 1rem 0;
         }
-        .navbar-brand, .nav-link, .footer p {
-            color: white;
+        /* Style de la barre de navigation au défilement */
+        
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            background-color: rgba(10, 30, 79, 0.98);
         }
-        .navbar-nav .nav-link {
-            transition: color 0.3s ease, transform 0.3s ease;
+        /* Style du logo et de la marque */
+        
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
-        .navbar-nav .nav-link:hover {
-            color: #12a21f;
-            transform: scale(1.1);
+        
+        .navbar-brand img {
+            transition: transform var(--transition-speed) ease;
+            width: 60px;
+            height: 50px;
         }
+        
+        .navbar-brand:hover img {
+            transform: rotate(360deg);
+        }
+        /* Style des liens de navigation */
+        
+        .nav-link {
+            position: relative;
+            margin: 0 0.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width var(--transition-speed) ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        /* Style de la section héro */
+        
         .hero {
-            background: linear-gradient(120deg, rgba(12,162,19,255) 0%, rgb(10,30,79) 100%);
-            color: white;
-            padding: 100px 0;
-            text-align: center;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
             overflow: hidden;
         }
-        .hero .title, .hero .subtitle {
-            animation: fadeInDown 1.5s ease-in-out;
+        /* Effet de fond avec le logo */
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('../BDE-ESCIC/img/ESCIC LOGO BDE.png') center/contain no-repeat;
+            opacity: 0.1;
+            animation: pulse 4s ease-in-out infinite;
         }
+        /* Animation de pulsation */
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.15;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.1;
+            }
+        }
+        /* Style du titre héro */
+        
+        .hero .title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        /* Style du sous-titre héro */
+        
         .hero .subtitle {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
+        /* Style des titres de section */
+        
         .section-title {
-            color: rgba(12,162,19,255);
+            color: var(--secondary-color);
             font-weight: bold;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
             text-align: center;
             position: relative;
-            padding-bottom: 10px;
-            font-size: 2rem;
+            padding-bottom: 20px;
+            font-size: 2.5rem;
         }
+        
         .section-title::after {
             content: '';
             position: absolute;
-            width: 100px;
+            width: 150px;
             height: 4px;
-            background-color: rgba(12,162,19,255);
+            background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
         }
+        /* Style des cartes */
+        
         .card {
-            background-color: rgb(10,30,79);
-            backdrop-filter: blur(5px);
-            border: none;
-            border-radius: 15px;
-            color: #fff;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: rgba(10, 30, 79, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid #fffdfd;
+            border-radius: 20px;
+            padding: 2rem;
+            height: 100%;
+            transition: all 0.4s ease;
+            overflow: hidden;
         }
-        .card h3 {
-            font-size: 1.75rem;
-            margin-bottom: 15px;
+        /* Effet de brillance au survol */
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, #ffffff, transparent);
+            transition: 0.5s;
         }
-        .card p {
-            font-size: 1rem;
-            line-height: 1.6;
+        
+        .card:hover::before {
+            left: 100%;
         }
+        
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
         }
+        /* Style des titres de carte */
+        
+        .card h3 {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        /* Style du pied de page */
+        
         .footer {
-            padding: 20px 0;
-            background-color: rgb(5,20,50);
+            background-color: rgb(5, 20, 50);
+            padding: 2rem 0;
+            position: relative;
         }
-        .footer p {
-            margin: 0;
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
         }
-        @keyframes fadeInDown {
-            0% {
-                opacity: 0;
-                transform: translateY(-20px);
+        /* Style des liens sociaux */
+        
+        .social-links {
+            margin-bottom: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--text-color);
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        /* Styles responsifs */
+        
+        @media (max-width: 768px) {
+            .hero .title {
+                font-size: 2.5rem;
             }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
+            .hero .subtitle {
+                font-size: 1.3rem;
+            }
+            .card {
+                margin-bottom: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero .title {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Navigation Bar -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="logo-escic.png" alt="ESCIC Logo" width="30" height="30" class="d-inline-block align-top">
-                    BDE ESCIC
+                <a class="navbar-brand" href="index.html">
+                    <img src="../BDE-ESCIC/img/ESCIC LOGO BDE.png" alt="ESCIC Logo" class="d-inline-block align-top"> BDE ESCIC
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -118,13 +294,13 @@
                             <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html"><i class="fas fa-info-circle"></i> À propos</a>
+                            <a class="nav-link active" aria-current="page" href="about.html"><i class="fas fa-info-circle"></i> À propos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="events.html"><i class="fas fa-calendar-alt"></i> Événements</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="clubs.html"><i class="fas fa-users"></i> Clubs</a>
+                            <a class="nav-link" href="clubs.html"><i class="fas fa-users"></i> Clubs</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="partners.html"><i class="fas fa-handshake"></i> Partenaires</a>
@@ -143,11 +319,11 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-body">
-            <h1 class="title animate__animated animate__fadeInDown">
+        <div class="hero-body text-center">
+            <h1 class="title animate__animated animate__fadeInDown text-white">
                 À propos du BDE ESCIC
             </h1>
-            <p class="subtitle animate__animated animate__fadeInUp">
+            <p class="subtitle animate__animated animate__fadeInUp text-white">
                 Notre mission, nos valeurs et notre histoire.
             </p>
         </div>
@@ -155,24 +331,26 @@
 
     <!-- About Section -->
     <section id="about" class="container my-5">
-        <h2 class="section-title">Qui sommes-nous ?</h2>
+        <h2 class="section-title animate__animated animate__fadeIn">Qui sommes-nous ?</h2>
         <div class="row">
-            <div class="col-md-4">
-                <div class="card p-4">
-                    <h3>Notre Mission</h3>
-                    <p>Le BDE ESCIC a pour mission de créer une communauté étudiante dynamique, engagée et solidaire. Nous organisons divers événements et activités pour promouvoir l'intégration, le développement personnel, et la réussite académique de tous les étudiants.</p>
+            <div class="col-md-4 mb-4">
+                <div class="card animate__animated animate__fadeInLeft">
+                    <h3><i class="fas fa-bullseye me-2"></i>Notre Mission</h3>
+                    <p style="color: #ffffff;">Le BDE ESCIC a pour mission de créer une communauté étudiante dynamique, engagée et solidaire. Nous organisons divers événements et activités pour promouvoir l'intégration, le développement personnel, et la réussite académique de tous
+                        les étudiants.</p>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card p-4">
-                    <h3>Nos Valeurs</h3>
-                    <p>Nous valorisons l'inclusion, l'innovation, et l'excellence. Notre BDE s'efforce de maintenir un environnement respectueux et stimulant, où chaque étudiant peut s'épanouir et contribuer de manière significative à la vie de l'université.</p>
+            <div class="col-md-4 mb-4">
+                <div class="card animate__animated animate__fadeInUp">
+                    <h3><i class="fas fa-heart me-2"></i>Nos Valeurs</h3>
+                    <p style="color: #ffffff;">Nous valorisons l'inclusion, l'innovation, et l'excellence. Notre BDE s'efforce de maintenir un environnement respectueux et stimulant, où chaque étudiant peut s'épanouir et contribuer de manière significative à la vie de l'université.</p>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card p-4">
-                    <h3>Notre Histoire</h3>
-                    <p>Depuis sa création, le BDE ESCIC a évolué pour devenir un acteur clé de la vie étudiante à l'ESCIC. Grâce à l'engagement de nos membres et à la collaboration avec divers partenaires, nous continuons à offrir des expériences mémorables à tous nos étudiants.</p>
+            <div class="col-md-4 mb-4">
+                <div class="card animate__animated animate__fadeInRight">
+                    <h3><i class="fas fa-history me-2"></i>Notre Histoire</h3>
+                    <p style="color: #ffffff;">Depuis sa création, le BDE ESCIC a évolué pour devenir un acteur clé de la vie étudiante à l'ESCIC. Grâce à l'engagement de nos membres et à la collaboration avec divers partenaires, nous continuons à offrir des expériences mémorables
+                        à tous nos étudiants.</p>
                 </div>
             </div>
         </div>
@@ -188,5 +366,30 @@
     <!-- JavaScript Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 50) {
+                $('.navbar').addClass('scrolled');
+            } else {
+                $('.navbar').removeClass('scrolled');
+            }
+        });
+
+        // Animation on scroll
+        $(window).scroll(function() {
+            $('.animate__animated').each(function() {
+                var elementTop = $(this).offset().top;
+                var elementBottom = elementTop + $(this).outerHeight();
+                var viewportTop = $(window).scrollTop();
+                var viewportBottom = viewportTop + $(window).height();
+
+                if (elementBottom > viewportTop && elementTop < viewportBottom) {
+                    $(this).css('visibility', 'visible');
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
